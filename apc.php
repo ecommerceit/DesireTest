@@ -523,7 +523,6 @@ body,p,td,th,input,submit { font-size:0.8em;font-family:arial,helvetica,sans-ser
 * html td     {font-size:0.8em}
 * html th     {font-size:0.8em}
 * html input  {font-size:0.8em}
-* html submit {font-size:0.8em}
 td { vertical-align:top }
 a { color:black; font-weight:none; text-decoration:none; }
 a:hover { text-decoration:underline; }
