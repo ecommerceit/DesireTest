@@ -517,7 +517,7 @@ function block_sort($array1, $array2)
 <head><title>APC INFO <?php echo $host ?></title>
 <style><!--
 body { background:white; font-size:100.01%; margin:0; padding:0; }
-body,p,td,th,input,submit { font-size:0.8em;font-family:arial,helvetica,sans-serif; }
+body,p,td,th,input { font-size:0.8em;font-family:arial,helvetica,sans-serif; }
 * html body   {font-size:0.8em}
 * html p      {font-size:0.8em}
 * html td     {font-size:0.8em}
