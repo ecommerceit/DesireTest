@@ -1,0 +1,14 @@
+<form action="/newsletter/subscriber/new/" method="post" id="newsletter-validate-detail">
+    <div class="form-subscribe">
+        <div class="input-box">
+           <input type="text" name="email" id="newsletter" class="input-text required-entry validate-email" />
+              
+            <button type="submit" title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Sign Up') ?></span></span></button>  
+        </div>  
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+//]]>
+</script>

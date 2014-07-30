@@ -1,0 +1,56 @@
+ <div id="submenu" class="bottomsubmenu">
+        <div class="submenu-bite left">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('submenu_left')->toHtml() ?>
+        </div>
+         <div class="submenu-bite middle">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('submenu_middle')->toHtml() ?>
+        </div>
+        <div class="submenu-bite right">
+         <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('submenu_right')->toHtml() ?>
+        </div>
+        </div>
+        <div class="footer-social-container">
+    <div class="footer-social">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('follow_us')->toHtml(); ?>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="footer-container">
+    <div class="aditional-footer">
+        <?php echo $this->getChildHtml('bottomContainer') ?>
+        <div class="f-right">
+            <div class="footer-right">
+                <div class="right-conteiner">
+                    <?php echo $this->getChildHtml('newsletter') ?>
+                    <div class="clear"></div>
+                    <div class="creditcards">
+ <img class="credit-cards" src="<?php echo $this->getSkinUrl('images/credit_cards.png');?>" width="193px" height="65px" alt="Credit Cards" title="We accept all major credit cards as well as Paypal." />
+</div> <!--End creditcards-->
+                </div>
+                <div class="right-conteiner">
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_time')->toHtml(); ?>
+                    <?php if(themeOptions('topbtn')): ?>                    
+                        <div id="back-to-top"><a href="#top" id="top-link"><?php echo $this->__('Back to top') ?></a></div> 
+                    <?php endif; ?>
+                    <div style="clear: both;"></div>
+                </div>                
+            </div>
+        </div>
+        
+        <div class="f-left footer-left">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_shipping')->toHtml(); ?>
+        </div>
+        <div style="clear: both;"></div>
+    </div>  
+</div>  
+    <div class="footer">
+        <?php echo $this->getChildHtml('bottomContainer') ?>
+        <div class="f-left">
+            <?php echo $this->getChildHtml('footer_links') ?><br />
+            <?php echo $this->getCopyright() ?>&nbsp;&nbsp;
+            <?php echo $this->getChildHtml('cms_footer_links') ?>
+        </div>
+        <div class="f-right">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('verify')->toHtml(); ?>
+        </div>
+    </div>

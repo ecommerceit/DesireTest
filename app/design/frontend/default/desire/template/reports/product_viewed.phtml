@@ -1,0 +1,75 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/* @var $this Mage_Reports_Block_Product_Viewed */
+?>
+<?php if ($_products = $this->getRecentlyViewedProducts()): ?>
+<div class="block block-list block-related">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Recently Viewed Products') ?></span></strong>
+    </div>
+   <div id="mycarousel" class="related related-slider">
+        <div class="slider" >        
+        <?php $_i_related = -1; ?>
+        <?php foreach ($_products as $_item): $_i_related++; ?>
+            <div class="slide <?php if((count($_products) == 4 && $_i_related == 3) || (count($_products) == ($_i_related + 1))) echo 'last' ?>">
+                <div class="product">
+                    <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(228) ?>" width="228" height="228" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+                    <div class="product-details">
+                        <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach ?>
+        </div>
+        <?php if(count($_products) > 4): ?>
+            <div class="prev">&nbsp;</div>
+            <div class="next">&nbsp;</div>         
+        <?php endif; ?>  
+<?php if(count($_products) > 4): ?>
+        <script type="text/javascript">
+            jQuery('.related .prev').addClass('disabled');
+            jQuery('.related').iosSlider({
+                desktopClickDrag: true,
+                snapToChildren: true,
+                infiniteSlider: false,
+                navNextSelector: '.related .next',
+                navPrevSelector: '.related .prev',
+                lastSlideOffset: 3,
+                onFirstSlideComplete: function(){
+                    jQuery('.related .prev').addClass('disabled');
+                },
+                onLastSlideComplete: function(){
+                    jQuery('.related .next').addClass('disabled');
+                },
+                onSlideChange: function(){
+                    jQuery('.related .prev').removeClass('disabled');
+                    jQuery('.related .next').removeClass('disabled');
+                }
+            });               
+        </script>           
+    <?php endif; ?>    
+      <?php endif; ?>
+
